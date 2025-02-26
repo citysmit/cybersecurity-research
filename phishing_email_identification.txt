@@ -1,0 +1,32 @@
+I'd imagine that I received an email claiming to be from my bank, "SaveBank," with the subject line: "Urgent: Verify Your Account Now." The email urges me to click a link to update my account details due to a supposed security issue. It’s from "support@savebank-online.com," and there’s an attachment labeled "Account_Verification.pdf." Something feels off—the urgency, the slightly odd domain, and the unexpected file. I'd analyze it using free tools to confirm if it’s phishing.
+
+Step 1: I'd inspect the Email Header as they contain metadata about the email’s origin and path, often revealing spoofing attempts common in phishing.
+- Tool: MXToolbox Email Header Analyzer
+- Process: I'd open my email client (e.g., Gmail, Outlook), I'd view the email’s raw source (in Gmail, I'd click the three-dot menu > "Show original"), and copy the header text. I'd paste it into MXToolbox’s analyzer at mxtoolbox.com/EmailHeaders.aspx.
+- Findings: Spoofed domain (savebank-online.com vs. savebank.com), failed SPF, spam-linked IP.
+- Verdict: Spoofing detected.
+
+Step 2: Analyze Sender Domain
+- Tool: WHOIS Lookup (via whois.domaintools.com)
+- Process: I'd enter the sender domain, "savebank-online.com," into the WHOIS lookup tool to check its registration details.
+- Findings: Registered 2 days ago, private ownership, vs. SaveBank’s long-standing domain.
+- Verdict: Suspicious new domain.
+
+Step 3: I'd Check the URL
+- Tool: VirusTotal (virustotal.com), CheckPhish (checkphish.ai)
+- Process: Scanned "http://savebank-online.com/login".
+- Findings: VirusTotal flagged it as phishing (5/70 engines); CheckPhish noted typosquatting and fake login form.
+- Verdict: Malicious link.
+
+Step 4: I'd Examine Attachment
+- Tool: VirusTotal
+- Process: Scanned "Account_Verification.pdf".
+- Findings: Embedded JavaScript, flagged as Trojan-Downloader, connects to shady server.
+- Verdict: Malware-laden file.
+
+Step 5: I'd Cross-Check Phishing Databases
+- Tool: PhishTank (phishtank.com)
+- Process: Searched "securebank-online.com".
+- Findings: Matched a verified phishing campaign targeting SecureBank.
+- Verdict: Part of known attack wave.
+
